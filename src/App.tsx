@@ -1,10 +1,7 @@
-import { VFC, useEffect, useState, useCallback } from "react";
-import Cells from "./components/Cells";
+import { VFC, useEffect, useState } from "react";
 import Container from "./components/Container";
-import DockBar from "./components/DockBar";
 import OpenOnDesktop from "./components/OpenOnDesktop";
 import { useWindowDimensions } from "./hooks/useWindowDimensions";
-import { NFT_ICONS } from "./constants/images";
 import {
 	Wrapper,
 	Project,
@@ -19,32 +16,12 @@ import {
 } from "./style";
 import GetStatus from "./logic/GetStatus";
 import InvoiceModal from "./components/CellModalInvoice";
-import NftViewer from "./components/NftViewer";
 import * as dayjs from "dayjs";
-
-// export const nftIcons: string[] = [];
-
-// for (let i = 1; i < 26; i++) {
-// 	nftIcons.push(`${NFT_ICONS + i}.png`);
-// }
 
 const App: VFC = () => {
 	const [bigArr, setBigArr] = useState({ status: [] });
 	const [isModal, setIsBuyMode] = useState<boolean>(false);
-	const [isZoomMode, setIsZoomMode] = useState<boolean>(false);
-	const [onSideBar, setonSideBar] = useState<boolean>(false);
-	const [mapVersion, setMapVersion] = useState<number>(0);
 	const [id, setId] = useState<number>(0);
-
-	const toggleBuyMode = useCallback(() => {
-		setIsBuyMode((prev) => !prev);
-	}, []);
-
-	const toggleMap = (mapold: any) => {
-		let newMap = mapold + 1;
-		if (newMap === 3) newMap = 0;
-		setMapVersion(newMap);
-	};
 
 	useEffect(() => {
 		(async () => {
@@ -54,8 +31,9 @@ const App: VFC = () => {
 
 	const { width } = useWindowDimensions();
 
-	console.log(bigArr);
-
+	if (width < 768) {
+		return <OpenOnDesktop />;
+	}
 	return (
 		<Container>
 			{isModal && (
@@ -93,11 +71,6 @@ const App: VFC = () => {
 									<br />
 									<b>* Levels of support:</b> {JSON.parse(e.NFTsMeta).length}{" "}
 									NFTs
-									{/* <br /> */}
-									{/* NFTColl: {e.Rised} */}
-									{/* <br /> */}
-									{/* Pic: {e.Picture} */}
-									{/* <br /> */}
 									<br />
 									{e.EndDate === 10 || !e.EndDate ? null : <b>* End date: </b>}
 									{e.EndDate === 10

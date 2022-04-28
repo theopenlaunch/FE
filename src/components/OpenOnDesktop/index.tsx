@@ -15,8 +15,8 @@ const OpenOnDesktop: VFC = () => {
 // <br />
 // <Label>
 //   Go to{" "}
-//   <a href={"https://launchpad.tonana.org"}>
-//     https://launchpad.tonana.org
+//   <a href={"https://testnet.app.toncells.org"}>
+//     https://testnet.app.toncells.org
 //   </a>
 // </Label>
 export default OpenOnDesktop;
