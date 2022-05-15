@@ -1,7 +1,8 @@
 import { VFC, useEffect, useState } from "react";
+import * as dayjs from "dayjs";
+import GetStatus from "./logic/GetStatus";
+import ModalInvoice from "./components/ModalInvoice";
 import Container from "./components/Container";
-import OpenOnDesktop from "./components/OpenOnDesktop";
-import { useWindowDimensions } from "./hooks/useWindowDimensions";
 import {
 	Wrapper,
 	Project,
@@ -14,13 +15,10 @@ import {
 	Center,
 	Flex,
 } from "./style";
-import GetStatus from "./logic/GetStatus";
-import InvoiceModal from "./components/CellModalInvoice";
-import * as dayjs from "dayjs";
 
 const App: VFC = () => {
 	const [bigArr, setBigArr] = useState({ status: [] });
-	const [isModal, setIsBuyMode] = useState<boolean>(false);
+	const [isModal, setModal] = useState<boolean>(false);
 	const [id, setId] = useState<number>(0);
 
 	useEffect(() => {
@@ -29,17 +27,13 @@ const App: VFC = () => {
 		})();
 	}, []);
 
-	const { width } = useWindowDimensions();
-
-	if (width < 768) {
-		return <OpenOnDesktop />;
-	}
+	// TODO i need to code below split to components
 	return (
 		<Container>
 			{isModal && (
-				<InvoiceModal
+				<ModalInvoice
 					isVisible={isModal}
-					toggleInvoiceMode={() => setIsBuyMode((prev) => !prev)}
+					toggleInvoiceMode={() => setModal((prev) => !prev)}
 					projectId={id}
 				/>
 			)}
@@ -88,7 +82,7 @@ const App: VFC = () => {
 							<Center>
 								<BuyButton
 									onClick={() => {
-										setIsBuyMode((prev) => !prev);
+										setModal((prev) => !prev);
 										setId(e.Id);
 									}}>
 									Donate

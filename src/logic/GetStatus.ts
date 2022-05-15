@@ -4,5 +4,3 @@ const GetStatus = async () =>
 	}).then((e: any) => e.json());
 
 export default GetStatus;
-
-// localhost
