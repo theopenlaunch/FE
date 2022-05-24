@@ -1,24 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { createGlobalStyle } from "styled-components";
-import "antd/dist/antd.css";
-
-const GlobalStyle = createGlobalStyle`
-  * {
-    font-family: "Roboto", sans-serif !important;
-    margin: 0;
-    padding: 0;
-  }
-	.ant-message{
-		z-index: 9999999;
-	}
-`;
+import { GlobalStyles } from "./GlobalStyles";
 
 ReactDOM.render(
-	<React.StrictMode>
-		<GlobalStyle />
-		<App />
-	</React.StrictMode>,
-	document.getElementById("root")
+  <React.StrictMode>
+    <GlobalStyles />
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
 );
