@@ -3,6 +3,10 @@ import styled from "styled-components";
 import Redirect from "../redirect/Redirect";
 
 import logo from "../../images/logo.svg";
+import twitter from "../../images/twitter.svg";
+import facebook from "../../images/facebook.svg";
+import discord from "../../images/discord.svg";
+import telegram from "../../images/telegram.svg";
 
 const Container = styled.main`
   min-height: 100vh;
@@ -22,6 +26,10 @@ const Navigation = styled.nav`
   justify-content: space-between;
   align-items: center;
   position: relative;
+
+  @media only screen and (max-width: 1200px) {
+    padding: 0 40px;
+  }
 `;
 
 const Links = styled.ul`
@@ -47,13 +55,9 @@ const Link = styled.li`
 `;
 
 const Logo = styled.img`
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
   height: 80px;
   width: 120px;
-  cursor: pointer;
+  margin-bottom: 40px;
 `;
 
 const ConnectButton = styled.button`
@@ -72,6 +76,28 @@ const ConnectButton = styled.button`
   &:active {
     transform: scale(0.93);
   }
+`;
+
+const Footer = styled.footer`
+  background-color: #fafafa;
+  padding: 100px 40px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media only screen and (max-width: 400px) {
+    font-size: 14px;
+  }
+`;
+
+const Socials = styled.figure`
+  display: flex;
+  margin-bottom: 40px;
+`;
+
+const SocialIcon = styled.img`
+  margin: 0 15px;
+  cursor: pointer;
 `;
 
 interface LayoutProps {
@@ -104,6 +130,19 @@ const Layout = ({ children }: LayoutProps) => {
         </Navigation>
       </Header>
       {children}
+      <Footer>
+        <Logo src={logo} alt="logo" />
+        <Socials>
+          <SocialIcon src={twitter} alt="twitter" />
+          <SocialIcon src={facebook} alt="facebook" />
+          <SocialIcon src={discord} alt="discord" />
+          <SocialIcon src={telegram} alt="telegram" />
+        </Socials>
+        <p>
+          © BlockCzech 2021. All rights Reserved.{" "}
+          <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+        </p>
+      </Footer>
     </Container>
   );
 };

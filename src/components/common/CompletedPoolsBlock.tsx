@@ -11,16 +11,28 @@ const Container = styled.main``;
 const Content = styled.section`
   max-width: 1200px;
   margin: 0 auto;
+
+  @media only screen and (max-width: 1200px) {
+    padding: 40px;
+  }
 `;
 
 const Header = styled.header`
   display: flex;
+
+  @media only screen and (max-width: 740px) {
+    flex-direction: column;
+  }
 `;
 
 const Filters = styled.ul`
   display: flex;
   margin-left: 60px;
   align-items: center;
+
+  @media only screen and (max-width: 740px) {
+    margin-left: 0;
+  }
 `;
 
 const Filter = styled.li`
@@ -32,6 +44,11 @@ const Filter = styled.li`
   align-items: center;
   justify-content: center;
   padding: 5px 15px;
+
+  @media only screen and (max-width: 740px) {
+    margin-top: 20px;
+    font-size: 14px;
+  }
 `;
 
 const Pools = styled.section`
@@ -39,6 +56,10 @@ const Pools = styled.section`
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
   margin-top: 40px;
+
+  @media only screen and (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const Pool = styled.section`
@@ -56,6 +77,14 @@ const ImageWrapper = styled.figure`
   display: flex;
   align-items: flex-start;
   justify-content: center;
+
+  @media only screen and (max-width: 900px) {
+    padding: 0 10px;
+  }
+
+  @media only screen and (max-width: 400px) {
+    width: 100%;
+  }
 `;
 
 const PoolImage = styled.img`
@@ -68,6 +97,10 @@ const TextContent = styled.article`
   display: flex;
   flex-direction: column;
   width: 70%;
+
+  @media only screen and (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 const PoolHeader = styled.header`
@@ -75,6 +108,11 @@ const PoolHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+
+  @media only screen and (max-width: 1020px) {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
 `;
 
 const Tag = styled.div`
@@ -84,6 +122,11 @@ const Tag = styled.div`
   padding: 2px 10px;
   margin-right: 5px;
   font-size: 12px;
+
+  @media only screen and (max-width: 1020px) {
+    align-self: flex-end;
+    margin: 5px 0;
+  }
 `;
 
 const PoolText = styled.p`
@@ -94,6 +137,11 @@ const PoolText = styled.p`
 const TopContent = styled.section`
   display: flex;
   padding-bottom: 40px;
+
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const BottomContent = styled.section`
@@ -105,12 +153,20 @@ const RaiseAmount = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 80px;
+
+  @media only screen and (max-width: 900px) {
+    margin-right: 40px;
+  }
 `;
 
 const RaiseHeading = styled.h1`
   font-size: 24px;
   font-weight: 700;
   line-height: 20px;
+
+  @media only screen and (max-width: 900px) {
+    font-size: 16px;
+  }
 `;
 
 const RaiseHeadingSmall = styled.h1`
@@ -131,6 +187,14 @@ const PoolHeading = styled.h1`
   font-size: 24px;
   font-weight: bold;
   line-height: 30px;
+
+  @media only screen and (max-width: 900px) {
+    margin-top: 10px;
+  }
+
+  @media only screen and (max-width: 400px) {
+    align-self: center;
+  }
 `;
 
 const ShowMore = styled.a`
@@ -141,6 +205,10 @@ const ShowMore = styled.a`
   cursor: pointer;
   margin-top: 80px;
   text-decoration: none;
+
+  @media only screen and (max-width: 400px) {
+    font-size: 14px;
+  }
 `;
 
 const IconWrapper = styled.figure`
@@ -165,6 +233,7 @@ const RaiseAmountContent = styled.section`
 
 const ProgressBarWrapper = styled.div`
   margin-top: 20px;
+  width: 100%;
 `;
 
 const BarDataContent = styled.div`
@@ -179,6 +248,10 @@ const BarDataText = styled.p`
   font-weight: bold;
   font-size: 18px;
   line-height: 22px;
+
+  @media only screen and (max-width: 900px) {
+    font-size: 14px;
+  }
 `;
 
 const BarDataBLC = styled.p`

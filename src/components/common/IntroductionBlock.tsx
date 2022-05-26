@@ -7,6 +7,7 @@ import banana from "../../images/banana.png";
 
 const Container = styled.main`
   min-height: 100vh;
+  overflow: hidden;
 `;
 
 const Content = styled.section`
@@ -15,18 +16,35 @@ const Content = styled.section`
   padding: 40px 0;
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: 1200px) {
+    padding: 40px;
+  }
 `;
 
 const TopContent = styled.section`
   display: grid;
   grid-template-columns: 2fr 1fr;
   margin-bottom: 80px;
+
+  @media only screen and (max-width: 880px) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 `;
 
 const BottomContent = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
+
+  @media only screen and (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (max-width: 400px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const TextContent = styled.article`
@@ -56,6 +74,23 @@ const ImageWrapper = styled.figure`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media only screen and (max-width: 900px) {
+    height: 260px;
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media only screen and (max-width: 400px) {
+    overflow: hidden;
+  }
+`;
+
+const Banana = styled.img`
+  height: 98%;
+  width: 98%;
   -webkit-animation: spin 30s linear infinite;
   -moz-animation: spin 30s linear infinite;
   animation: spin 30s linear infinite;
@@ -76,11 +111,10 @@ const ImageWrapper = styled.figure`
       transform: rotate(360deg);
     }
   }
-`;
 
-const Banana = styled.img`
-  height: 98%;
-  width: 98%;
+  @media only screen and (max-width: 900px) {
+    width: 360px;
+  }
 `;
 
 const Links = styled.ul`
@@ -138,6 +172,10 @@ const ViewMore = styled.a`
   cursor: pointer;
   margin-top: 80px;
   text-decoration: none;
+
+  @media only screen and (max-width: 400px) {
+    font-size: 14px;
+  }
 `;
 
 const IntroductionBlock = () => {

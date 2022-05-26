@@ -11,16 +11,28 @@ const Content = styled.section`
   max-width: 1200px;
   margin: 0 auto;
   padding-bottom: 80px;
+
+  @media only screen and (max-width: 1200px) {
+    padding: 40px;
+  }
 `;
 
 const Header = styled.header`
   display: flex;
+
+  @media only screen and (max-width: 740px) {
+    flex-direction: column;
+  }
 `;
 
 const Filters = styled.ul`
   display: flex;
   margin-left: 60px;
   align-items: center;
+
+  @media only screen and (max-width: 740px) {
+    margin-left: 0;
+  }
 `;
 
 const Filter = styled.li`
@@ -32,6 +44,11 @@ const Filter = styled.li`
   align-items: center;
   justify-content: center;
   padding: 5px 15px;
+
+  @media only screen and (max-width: 740px) {
+    margin-top: 20px;
+    font-size: 14px;
+  }
 `;
 
 const Pools = styled.section`
@@ -39,6 +56,10 @@ const Pools = styled.section`
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
   margin-top: 40px;
+
+  @media only screen and (max-width: 650px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const Pool = styled.section`
@@ -47,6 +68,11 @@ const Pool = styled.section`
   display: flex;
   border-radius: 20px;
   padding: 20px;
+
+  @media only screen and (max-width: 700px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const ImageWrapper = styled.figure`
@@ -55,6 +81,14 @@ const ImageWrapper = styled.figure`
   display: flex;
   align-items: flex-start;
   justify-content: center;
+
+  @media only screen and (max-width: 900px) {
+    padding: 0 10px;
+  }
+
+  @media only screen and (max-width: 400px) {
+    width: 100%;
+  }
 `;
 
 const PoolImage = styled.img`
@@ -67,6 +101,10 @@ const TextContent = styled.article`
   display: flex;
   flex-direction: column;
   width: 70%;
+
+  @media only screen and (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 const PoolHeader = styled.header`
@@ -74,6 +112,11 @@ const PoolHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+
+  @media only screen and (max-width: 900px) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 `;
 
 const Tags = styled.section`
@@ -81,6 +124,13 @@ const Tags = styled.section`
   justify-content: flex-end;
   flex-wrap: wrap;
   width: 50%;
+
+  @media only screen and (max-width: 900px) {
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
 `;
 
 const Tag = styled.div`
@@ -136,6 +186,10 @@ const ShowMore = styled.a`
   cursor: pointer;
   margin-top: 80px;
   text-decoration: none;
+
+  @media only screen and (max-width: 400px) {
+    font-size: 14px;
+  }
 `;
 
 const IconWrapper = styled.figure`
