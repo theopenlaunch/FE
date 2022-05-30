@@ -50,7 +50,6 @@ const Layout = ({ children }: LayoutProps) => {
 					{/* <Redirect href="/">
             <Logo src={logo} alt="logo" />
           </Redirect> */}
-					<Styled.ConnectButton>Connect wallet</Styled.ConnectButton>
 					<Styled.ConnectButton
 						onClick={() => connectWalletTON(setTONwalletKey)}>
 						{!key ? (
