@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Heading02 } from "../../utils/Heading";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import GetStatus from "../../logic/GetStatus";
+import Tilt from "../../logic/Tilt";
+import ModalInvoice from "../ModalInvoice";
 
 import eclipse from "../../images/eclipse.png";
 import * as dayjs from "dayjs";
@@ -72,7 +74,8 @@ const Pool = styled.section`
 	display: flex;
 	border-radius: 20px;
 	padding: 20px;
-
+	cursor: pointer;
+	/* max-height: 180px; */
 	@media only screen and (max-width: 700px) {
 		flex-direction: column;
 		align-items: center;
@@ -80,14 +83,31 @@ const Pool = styled.section`
 `;
 
 const ImageWrapper = styled.figure`
+	/* 
+	/*  */
+	/* display: flex; */
+	/* align-items: flex-start; */
+	/* justify-content: center; */
+	/* height: 100%; */
 	width: 30%;
-	height: 100%;
-	display: flex;
-	align-items: flex-start;
-	justify-content: center;
+	filter: blur(2px);
+	overflow: hidden;
+	position: relative;
+	margin-right: 20px;
+	border-top-left-radius: 14px;
+	border-bottom-left-radius: 14px;
+	box-shadow: 1px 10px 13px 5px rgba(0, 0, 0, 0.08);
 
 	@media only screen and (max-width: 900px) {
-		padding: 0 10px;
+		/* padding: 0 10px; */
+		filter: blur(0px);
+		overflow: auto;
+		margin-right: 0;
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		/* height: 100px; */
+		border-radius: 8px;
 	}
 
 	@media only screen and (max-width: 400px) {
@@ -96,9 +116,16 @@ const ImageWrapper = styled.figure`
 `;
 
 const PoolImage = styled.img`
-	height: 90px;
-	width: 90px;
-	margin-top: 20px;
+	height: 100%;
+	position: absolute;
+	/* width: 100%; */
+	/* margin-top: 20px; */
+	/* max-height: 100%; */
+	@media only screen and (max-width: 900px) {
+		position: relative;
+		height: auto;
+		width: 100%;
+	}
 `;
 
 const TextContent = styled.article`
@@ -209,11 +236,19 @@ const IconWrapper = styled.figure`
 
 const PoolsBlock = () => {
 	const [bigArr, setBigArr] = useState({ status: [] });
+	const [isVisible, toggleModal] = useState(false);
+	const [projectData, setProjectData] = useState({});
+
 	useEffect(() => {
 		(async () => {
 			setBigArr(await GetStatus());
 		})();
 	}, []);
+
+	const modalClick = (e: any) => {
+		setProjectData(e);
+		toggleModal((prev) => !prev);
+	};
 
 	return (
 		<Container>
@@ -228,44 +263,68 @@ const PoolsBlock = () => {
 						<Filter style={{ backgroundColor: "#FF004C" }}>0 - 5 days</Filter>
 					</Filters>
 				</Header>
+
+				{isVisible && (
+					<ModalInvoice
+						isVisible={isVisible}
+						toggleModal={() => toggleModal((prev) => !prev)}
+						projectData={projectData}
+					/>
+				)}
+
 				<Pools>
-					{bigArr.status.map((e: any) =>
+					{[
+						...bigArr.status,
+						...bigArr.status,
+						...bigArr.status,
+						...bigArr.status,
+						...bigArr.status,
+						...bigArr.status,
+						...bigArr.status,
+						...bigArr.status,
+					].map((e: any) =>
 						e ? (
-							<Pool>
-								<ImageWrapper>
-									<PoolImage src={e.Picture} alt="Eclipse" />
-								</ImageWrapper>
-								<TextContent>
-									<PoolHeader>
-										<PoolHeading>{e.Title}</PoolHeading>
-										<Tags>
-											<Tag style={{ backgroundColor: "#A259FF" }}>Public</Tag>
-											<Tag style={{ backgroundColor: "#FF004D" }}>
-												{e.EndDate === 10
-													? "none"
-													: //@ts-ignore
-													  dayjs().to(dayjs(Number(e.EndDate)))}
-												{/* dayjs(Number(e.EndDate)).format('MM/YYYY') */}
-											</Tag>
-										</Tags>
-									</PoolHeader>
-									<PoolText>
-										{e.Description.length > 200
-											? e.Description.slice(0, 200) + "..."
-											: e.Description}
-									</PoolText>
-									<Allocation>
-										<AllocationAmount>
-											<AllocationText>Rised (TON)</AllocationText>
-											<AllocationHeading>{e.Rised}</AllocationHeading>
-										</AllocationAmount>
-										<AllocationAmount>
-											<AllocationText>Maximum (TON)</AllocationText>
-											<AllocationHeading>{e.Max}</AllocationHeading>
-										</AllocationAmount>
-									</Allocation>
-								</TextContent>
-							</Pool>
+							<Tilt
+								children={
+									<Pool onClick={() => modalClick(e)}>
+										<ImageWrapper>
+											<PoolImage src={e.Picture} alt="Eclipse" />
+										</ImageWrapper>
+										<TextContent>
+											<PoolHeader>
+												<PoolHeading>{e.Title}</PoolHeading>
+												<Tags>
+													<Tag style={{ backgroundColor: "#A259FF" }}>
+														Public
+													</Tag>
+													<Tag style={{ backgroundColor: "#FF004D" }}>
+														{e.EndDate === 10
+															? "none"
+															: //@ts-ignore
+															  dayjs().to(dayjs(Number(e.EndDate)))}
+														{/* dayjs(Number(e.EndDate)).format('MM/YYYY') */}
+													</Tag>
+												</Tags>
+											</PoolHeader>
+											<PoolText>
+												{e.Description.length > 200
+													? e.Description.slice(0, 200) + "..."
+													: e.Description}
+											</PoolText>
+											<Allocation>
+												<AllocationAmount>
+													<AllocationText>Rised (TON)</AllocationText>
+													<AllocationHeading>{e.Rised}</AllocationHeading>
+												</AllocationAmount>
+												<AllocationAmount>
+													<AllocationText>Maximum (TON)</AllocationText>
+													<AllocationHeading>{e.Max}</AllocationHeading>
+												</AllocationAmount>
+											</Allocation>
+										</TextContent>
+									</Pool>
+								}
+							/>
 						) : null
 					)}
 				</Pools>

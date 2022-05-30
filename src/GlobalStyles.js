@@ -15,6 +15,10 @@ export const GlobalStyles = createGlobalStyle`
     color: #2C2C2C;
     scroll-behavior: smooth;
   }
+  iframe {
+    pointer-events: none;
+    display: none !important;
+  }
 `;
 
 export const Container = styled.main``;
