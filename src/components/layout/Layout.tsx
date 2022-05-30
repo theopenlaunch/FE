@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import Redirect from "../redirect/Redirect";
+import * as Styled from "./Layout.Styled";
 
 import logo from "../../images/logo.svg";
 import twitter from "../../images/twitter.svg";
@@ -8,113 +8,21 @@ import facebook from "../../images/facebook.svg";
 import discord from "../../images/discord.svg";
 import telegram from "../../images/telegram.svg";
 
-const Container = styled.main`
-  min-height: 100vh;
-`;
-
-const Header = styled.header`
-  height: 100px;
-  width: 100%;
-  background-color: #fff;
-`;
-
-const Navigation = styled.nav`
-  max-width: 1200px;
-  margin: 0 auto;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-
-  @media only screen and (max-width: 1200px) {
-    padding: 0 40px;
-  }
-`;
-
-const Links = styled.ul`
-  width: 260px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
-`;
-
-const Link = styled.li`
-  font-size: 14px;
-  list-style-type: none;
-  margin-right: 20px;
-  cursor: pointer;
-
-  &:hover {
-    color: #fcc914;
-  }
-`;
-
-const Logo = styled.img`
-  height: 80px;
-  width: 120px;
-  margin-bottom: 40px;
-`;
-
-const ConnectButton = styled.button`
-  background-color: #fc9114;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  color: #fff;
-  height: 40px;
-  width: 144px;
-
-  &:focus {
-    outline: none;
-  }
-
-  &:active {
-    transform: scale(0.93);
-  }
-`;
-
-const Footer = styled.footer`
-  background-color: #fafafa;
-  padding: 100px 40px 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media only screen and (max-width: 400px) {
-    font-size: 14px;
-  }
-`;
-
-const Socials = styled.figure`
-  display: flex;
-  margin-bottom: 40px;
-`;
-
-const SocialIcon = styled.img`
-  margin: 0 15px;
-  cursor: pointer;
-`;
-
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <Container>
-      <Header>
-        <Navigation>
-          <Links>
+    <Styled.Container>
+      <Styled.Header>
+        <Styled.Navigation>
+          <Styled.Links>
             <Redirect href="/">
-              <Link>Home</Link>
+              <Styled.Link>Home</Styled.Link>
             </Redirect>
             <Redirect href="https://tonana.org">
-              <Link>Tonana Bridge</Link>
+              <Styled.Link>Tonana Bridge</Styled.Link>
             </Redirect>
             {/* <Redirect href="/staking-farming">
               <Link>Staking/Farming</Link>
@@ -122,28 +30,28 @@ const Layout = ({ children }: LayoutProps) => {
             <Redirect href="/claims">
               <Link>Claims</Link>
             </Redirect> */}
-          </Links>
+          </Styled.Links>
           {/* <Redirect href="/">
             <Logo src={logo} alt="logo" />
           </Redirect> */}
-          <ConnectButton>Connect wallet</ConnectButton>
-        </Navigation>
-      </Header>
+          <Styled.ConnectButton>Connect wallet</Styled.ConnectButton>
+        </Styled.Navigation>
+      </Styled.Header>
       {children}
-      <Footer>
-        <Logo src={logo} alt="logo" />
-        <Socials>
-          <SocialIcon src={twitter} alt="twitter" />
-          <SocialIcon src={facebook} alt="facebook" />
-          <SocialIcon src={discord} alt="discord" />
-          <SocialIcon src={telegram} alt="telegram" />
-        </Socials>
+      <Styled.Footer>
+        <Styled.Logo src={logo} alt="logo" />
+        <Styled.Socials>
+          <Styled.SocialIcon src={twitter} alt="twitter" />
+          <Styled.SocialIcon src={facebook} alt="facebook" />
+          <Styled.SocialIcon src={discord} alt="discord" />
+          <Styled.SocialIcon src={telegram} alt="telegram" />
+        </Styled.Socials>
         <p>
           © BlockCzech 2021. All rights Reserved.{" "}
           <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
         </p>
-      </Footer>
-    </Container>
+      </Styled.Footer>
+    </Styled.Container>
   );
 };
 

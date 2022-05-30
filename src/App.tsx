@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import * as Styled from "./GlobalStyles";
 
 import Layout from "./components/layout/Layout";
-import HomePage from "./components/pages/HomePage";
+import HomePage from "./components/pages/homePage/HomePage";
 
 const App = () => {
   return (
