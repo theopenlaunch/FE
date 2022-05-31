@@ -12,6 +12,25 @@ interface LayoutProps {
 	children: React.ReactNode;
 }
 
+// FOR TONCELLS // EXAMPLE
+
+// fetch("https://launchpad.tonana.org:9967/API/addCollection", {
+// 	method: "POST",
+// 	headers: { "Content-Type": "application/json" },
+// 	body: JSON.stringify({
+// 		title: "Toncells v1",
+// 		description:
+// 			"TonCells is a 100 by 100 celled field where each cell can be edited. Make your unique NFT even more unique by customizing it how you want. Add picture or edit your own description and mainly do whatever you want!",
+// 		image:
+// 			"https://i.getgems.io/IbzFfDaWyK3v1FMjzZ005bItg86ircWMI-tps_HE1Ts/rs:fill:200:200:1/g:ce/czM6Ly9nZXRnZW1zLXMzL25mdC1jb250ZW50LWNhY2hlL2l0ZW0vMjdmN2I3ZDEtZDE5MC00MjkyLTlhYWQtNGVkYWNjMzkwNmEz",
+// 		externalUrl: "https://app.toncells.org",
+// 		endDate: 1654999907020,
+// 		maxFunding: 10000,
+// 	}),
+// })
+// 	.then((e) => e.json())
+// 	.then(console.log);
+
 const Layout = ({ children }: LayoutProps) => {
 	const [key, setTONwalletKey] = useState("");
 
