@@ -18,7 +18,7 @@ interface LayoutProps {
 // 	method: "POST",
 // 	headers: { "Content-Type": "application/json" },
 // 	body: JSON.stringify({
-// 		title: "Toncells v1",
+// 		title: "ToncellsTEST v1",
 // 		description:
 // 			"TonCells is a 100 by 100 celled field where each cell can be edited. Make your unique NFT even more unique by customizing it how you want. Add picture or edit your own description and mainly do whatever you want!",
 // 		image:

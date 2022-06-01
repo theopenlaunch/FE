@@ -5,7 +5,8 @@ import * as Styled from "./UpcomingPoolsBlock.Styled";
 import * as dayjs from "dayjs";
 import GetStatus from "../../../logic/GetStatus";
 import Tilt from "../../../logic/Tilt";
-import ModalInvoice from "../../ModalInvoice";
+import PoolDataModal from "../../PoolDataModal";
+import InvoiceModal from "../../InvoiceModal";
 
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
@@ -13,7 +14,9 @@ dayjs.extend(relativeTime);
 const UpcomingPoolsBlock = () => {
 	const [bigArr, setBigArr] = useState({ status: [] });
 	const [isVisible, toggleModal] = useState(false);
-	const [projectData, setProjectData] = useState({});
+	const [isInvoiceModalVisible, toggleInvoiceModalModal] = useState(false);
+	const [projectData, setProjectData] = useState<any>({});
+	const [nftCost, setNftCost] = useState<number>(0);
 
 	useEffect(() => {
 		(async () => {
@@ -24,6 +27,12 @@ const UpcomingPoolsBlock = () => {
 	const modalClick = (e: any) => {
 		setProjectData(e);
 		toggleModal((prev) => !prev);
+	};
+
+	const createInvoice = (cost: number) => {
+		toggleModal((prev) => !prev);
+		toggleInvoiceModalModal((prev) => !prev);
+		setNftCost(cost);
 	};
 
 	return (
@@ -45,10 +54,20 @@ const UpcomingPoolsBlock = () => {
 				</Styled.Header>
 
 				{isVisible && (
-					<ModalInvoice
+					<PoolDataModal
 						isVisible={isVisible}
 						toggleModal={() => toggleModal((prev) => !prev)}
 						projectData={projectData}
+						createInvoice={createInvoice}
+					/>
+				)}
+				{isInvoiceModalVisible && (
+					<InvoiceModal
+						isVisible={isInvoiceModalVisible}
+						toggleInvoiceMode={() => toggleInvoiceModalModal((prev) => !prev)}
+						NFTcost={nftCost}
+						projectId={projectData?.Id ? projectData.Id : 0}
+						projectWallet={projectData?.Wallet ? projectData.Wallet : ""}
 					/>
 				)}
 
