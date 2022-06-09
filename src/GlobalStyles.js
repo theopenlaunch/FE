@@ -15,9 +15,18 @@ export const GlobalStyles = createGlobalStyle`
     color: #2C2C2C;
     scroll-behavior: smooth;
   }
-  iframe {
-    pointer-events: none;
-    display: none !important;
+  .slick-slider {
+
+  >.slick-list{
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 1px 10px 13px 5px rgba(0, 0, 0, 0.08);
+    min-width: 250px !important;
+    width: 250px !important;
+    min-height: 250px !important;
+    height: 250px !important;
+  }
+    > 
   }
 `;
 

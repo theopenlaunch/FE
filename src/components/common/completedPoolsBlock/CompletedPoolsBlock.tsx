@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading02 } from "../../../utils/Heading";
+import { Heading02, Heading03 } from "../../../utils/Heading";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import ProgressBar from "../../progressBar/ProgressBar";
 import * as Styled from "./CompletedPoolsBlock.Styled";
@@ -12,6 +12,7 @@ const PoolsBlock = () => {
 			<Styled.Content>
 				<Styled.Header>
 					<Heading02 id="upcoming_pools">Completed Pools</Heading02>
+
 					<Styled.Filters>
 						<Styled.Filter style={{ backgroundColor: "#A259FF" }}>
 							Public
@@ -70,6 +71,9 @@ const PoolsBlock = () => {
               </Styled.BarDataContent>
             </Styled.BottomContent>
           </Styled.Pool> */}
+					<Heading03 style={{ margin: "auto" }}>
+						There are no completed projects yet
+					</Heading03>
 				</Styled.Pools>
 				<Styled.ShowMore href="#completed_pools">
 					<p>Show More</p>

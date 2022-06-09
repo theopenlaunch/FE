@@ -18,14 +18,14 @@ interface LayoutProps {
 // 	method: "POST",
 // 	headers: { "Content-Type": "application/json" },
 // 	body: JSON.stringify({
-// 		title: "ToncellsTEST v1",
+// 		title: "Toncells v1",
 // 		description:
 // 			"TonCells is a 100 by 100 celled field where each cell can be edited. Make your unique NFT even more unique by customizing it how you want. Add picture or edit your own description and mainly do whatever you want!",
 // 		image:
 // 			"https://i.getgems.io/IbzFfDaWyK3v1FMjzZ005bItg86ircWMI-tps_HE1Ts/rs:fill:200:200:1/g:ce/czM6Ly9nZXRnZW1zLXMzL25mdC1jb250ZW50LWNhY2hlL2l0ZW0vMjdmN2I3ZDEtZDE5MC00MjkyLTlhYWQtNGVkYWNjMzkwNmEz",
 // 		externalUrl: "https://app.toncells.org",
-// 		endDate: 1654999907020,
-// 		maxFunding: 10000,
+// 		endDate: 1655999907020,
+// 		maxFunding: 10069,
 // 	}),
 // })
 // 	.then((e) => e.json())
@@ -59,6 +59,7 @@ const Layout = ({ children }: LayoutProps) => {
 						<Redirect href="https://app.tonana.org">
 							<Styled.Link>Tonana Bridge</Styled.Link>
 						</Redirect>
+
 						{/* <Redirect href="/staking-farming">
               <Link>Staking/Farming</Link>
             </Redirect>
@@ -89,9 +90,10 @@ const Layout = ({ children }: LayoutProps) => {
 					<Styled.SocialIcon src={telegram} alt="telegram" />
 				</Styled.Socials>
 				<p>
-					© BlockCzech 2021. All rights Reserved.{" "}
+					© BlockCzech 2022. All rights Reserved.{" "}
 					<a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
 				</p>
+				<br />v 0.0.1 (beta)
 			</Styled.Footer>
 		</Styled.Container>
 	);

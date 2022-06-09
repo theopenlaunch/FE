@@ -42,13 +42,19 @@ const UpcomingPoolsBlock = () => {
 					<Heading02 id="upcoming_pools">Upcoming Pools</Heading02>
 					<Styled.Filters>
 						<Styled.Filter style={{ backgroundColor: "#A259FF" }}>
-							Public
+							All
 						</Styled.Filter>
-						<Styled.Filter style={{ border: "1px solid #000", color: "#000" }}>
-							Private
+						<Styled.Filter style={{ backgroundColor: "#00ee38ec" }}>
+							Sci-Fi
 						</Styled.Filter>
 						<Styled.Filter style={{ backgroundColor: "#FF004C" }}>
-							0 - 5 days
+							GameFi
+						</Styled.Filter>
+						<Styled.Filter style={{ backgroundColor: "#aaFe" }}>
+							DeFi
+						</Styled.Filter>
+						<Styled.Filter style={{ backgroundColor: "#01dddd" }}>
+							NFTs
 						</Styled.Filter>
 					</Styled.Filters>
 				</Styled.Header>
@@ -104,7 +110,7 @@ const UpcomingPoolsBlock = () => {
 											<Styled.Allocation>
 												<Styled.AllocationAmount>
 													<Styled.AllocationText>
-														Rised (TON)
+														Raised (TON)
 													</Styled.AllocationText>
 													<Styled.AllocationHeading>
 														{e.Rised}
@@ -126,8 +132,9 @@ const UpcomingPoolsBlock = () => {
 						) : null
 					)}
 				</Styled.Pools>
-				<Styled.ShowMore href="#completed_pools">
-					<p>Show More</p>
+
+				<Styled.ShowMore href="https://x18oi9qoftd.typeform.com/to/RqK4yWuM?typeform-source=admin.typeform.com">
+					<p>Apply new project</p>
 					<Styled.IconWrapper>
 						<ChevronRightIcon />
 					</Styled.IconWrapper>

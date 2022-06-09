@@ -7,7 +7,34 @@ export const Wrapper = styled.div`
   border-radius: 12px;
   padding: 38px;
   position: relative;
+  position: fixed;
+
+	@media only screen and (max-width: 1024px) {
+    width: calc(100% - 150px);
+    max-height: calc(100% - 136px);
+    overflow: scroll;
+  }
+  text-align: center;
+padding-top: 64px;
+  img {
+  
+  }
+  >span {
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+  
 `;
+
+
+export const DataWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 24px 0 0 0;
+  text-align: left;
+
+`
 
 export const LabelId = styled.p`
   font-weight: 700;
@@ -34,20 +61,8 @@ export const CloseBtn = styled.div`
   }
 `;
 
-export const Cell = styled.div`
-  /* width: 485px;
-  height: 476px; */
-  /* background-color: #fff;
-  margin: 0 auto;
-  width: 380px;
-  display: flex;
-  margin: 0 auto;
-  flex-wrap: wrap;
-  width: 380px;
-  height: 380px; */
-
-
-  /* filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5)); */
+export const Data = styled.div`
+margin: 0 0 0 48px;
 `;
 
 export const FlexWrapper = styled.div`
@@ -92,7 +107,19 @@ export const InfoText = styled.p`
 `;
 
 
+export const PointsWrapper = styled.div`
+display: flex;
+justify-content: center;
+>div{
+  margin: 0 24px;
+}
+p{
+  margin: 8px 0;
+  text-align: center;
 
+}
+
+`
 export const BuyButton = styled.button`
 
   /* /* margin-top: 50px; * */
@@ -123,11 +150,10 @@ export const DonateButton = styled.button`
   color: #fff;
   height: 40px;
   width: 144px;
-
+margin: 24px 0 0 0;
   &:focus {
     outline: none;
   }
-
   &:active {
     transform: scale(0.93);
   }

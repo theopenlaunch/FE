@@ -39,6 +39,7 @@ export const Filter = styled.li`
 	align-items: center;
 	justify-content: center;
 	padding: 5px 15px;
+	cursor: pointer;
 
 	@media only screen and (max-width: 740px) {
 		margin-top: 20px;
