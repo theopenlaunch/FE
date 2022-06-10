@@ -63,8 +63,9 @@ const PoolDataModal: VFC<Props> = memo(
 							<iframe
 								height="250"
 								width="250"
-								src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1"></iframe>
+								src={`${projectData.VideoLink}?autoplay=1&mute=1`}></iframe>
 						</Sss>
+
 						<Data>
 							{projectData.Description}
 							<br />
@@ -92,8 +93,16 @@ const PoolDataModal: VFC<Props> = memo(
 									<p>
 										Metadata: <a href={projectData.NFTCollectionURL}>link</a>
 									</p>
+
+									<p>
+										Presentation:{" "}
+										<a href={projectData.PresentationLink}>link</a>
+									</p>
 								</div>
 								<div>
+									<p>
+										Whitepaper: <a href={projectData.WhitepaperLink}>link</a>
+									</p>
 									<p>
 										External: <a href={link}>link</a>
 									</p>

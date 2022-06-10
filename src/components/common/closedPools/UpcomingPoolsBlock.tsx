@@ -10,7 +10,7 @@ import InvoiceModal from "../../InvoiceModal";
 var relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 
-const UpcomingPoolsBlock = (props: any) => {
+const ClosedPools = (props: any) => {
 	const [filtr, setFiltr] = useState("All");
 	const [isVisible, toggleModal] = useState(false);
 	const [isInvoiceModalVisible, toggleInvoiceModalModal] = useState(false);
@@ -32,7 +32,7 @@ const UpcomingPoolsBlock = (props: any) => {
 		<Styled.Container>
 			<Styled.Content>
 				<Styled.Header>
-					<Heading02 id="upcoming_pools">Upcoming Pools</Heading02>
+					<Heading02 id="upcoming_pools">Closed Pools</Heading02>
 					<Styled.Filters>
 						<Styled.Filter
 							style={{ backgroundColor: "#A259FF" }}
@@ -83,12 +83,12 @@ const UpcomingPoolsBlock = (props: any) => {
 				<Styled.Pools>
 					{props.bigArr.status
 						.filter((e: any) => e.Category === filtr || filtr === "All")
-						.filter((e: any) => Number(e.EndDate) >= new Date().getTime())
+						.filter((e: any) => Number(e.EndDate) < new Date().getTime())
 						.map((e: any) =>
 							e ? (
 								<Tilt
 									children={
-										<Styled.Pool onClick={() => modalClick(e)}>
+										<Styled.Pool onClick={() => null}>
 											<Styled.ImageWrapper>
 												<Styled.PoolImage src={e.Picture} alt="Eclipse" />
 											</Styled.ImageWrapper>
@@ -150,9 +150,8 @@ const UpcomingPoolsBlock = (props: any) => {
 							) : null
 						)}
 				</Styled.Pools>
-
-				<Styled.ShowMore href="https://x18oi9qoftd.typeform.com/to/RqK4yWuM">
-					<p>Apply new project</p>
+				<Styled.ShowMore href="#">
+					<p>Show more</p>
 					<Styled.IconWrapper>
 						<ChevronRightIcon />
 					</Styled.IconWrapper>
@@ -162,4 +161,4 @@ const UpcomingPoolsBlock = (props: any) => {
 	);
 };
 
-export default UpcomingPoolsBlock;
+export default ClosedPools;

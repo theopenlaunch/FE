@@ -16,10 +16,7 @@ const IntroductionBlock = () => {
 							<Styled.SpecialText>for TON projects</Styled.SpecialText>
 						</Heading01>
 						<Styled.Links>
-							<a
-								href={
-									"https://x18oi9qoftd.typeform.com/to/RqK4yWuM?typeform-source=admin.typeform.com"
-								}>
+							<a href={"https://x18oi9qoftd.typeform.com/to/RqK4yWuM"}>
 								<Styled.Link style={{ background: "#5DA6E9" }}>
 									Apply as a Project{" "}
 									<Styled.IconWrapper>

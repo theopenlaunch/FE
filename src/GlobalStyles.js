@@ -25,6 +25,10 @@ export const GlobalStyles = createGlobalStyle`
     width: 250px !important;
     min-height: 250px !important;
     height: 250px !important;
+	@media only screen and (max-width: 1024px) {
+    margin: 0 auto 48px auto;
+    
+  }
   }
     > 
   }

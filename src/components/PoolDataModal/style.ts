@@ -15,10 +15,7 @@ export const Wrapper = styled.div`
     overflow: scroll;
   }
   text-align: center;
-padding-top: 64px;
-  img {
-  
-  }
+  padding-top: 64px;
   >span {
     font-size: 24px;
     text-transform: uppercase;
@@ -26,13 +23,16 @@ padding-top: 64px;
   
 `;
 
-
 export const DataWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 24px 0 0 0;
   text-align: left;
+	@media only screen and (max-width: 1024px) {
+  display: block;
+
+  }
 
 `
 
@@ -62,12 +62,17 @@ export const CloseBtn = styled.div`
 `;
 
 export const Data = styled.div`
+	@media only screen and (max-width: 1024px) {
+    margin: 0 0 0;
+  }
+  text-align: justify;
 margin: 0 0 0 48px;
 `;
 
 export const FlexWrapper = styled.div`
   display: flex;
   align-items: center;
+  text-align: justify;
   justify-content: center;
 `;
 
@@ -77,11 +82,16 @@ export const InfoBlock = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: 0 0 0 120px;
+  text-align: justify;
   /* width: 380px; */
-
+	@media only screen and (max-width: 1024px) {
+  margin: 0;
+    
+  }
   /* width: 43%; */
   /* background: green; */
-  margin: 0 0 0 120px;
+  
 `;
 
 export const InfoLabel = styled.span`
@@ -97,6 +107,7 @@ export const InfoText = styled.p`
   max-width: 350px;
   max-height: 100px;
   overflow-y: scroll;
+
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   padding: 16px;
@@ -110,6 +121,9 @@ export const InfoText = styled.p`
 export const PointsWrapper = styled.div`
 display: flex;
 justify-content: center;
+@media only screen and (max-width: 650px) {
+  display:block ;
+}
 >div{
   margin: 0 24px;
 }

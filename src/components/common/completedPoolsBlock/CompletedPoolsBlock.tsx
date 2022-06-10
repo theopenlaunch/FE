@@ -6,7 +6,7 @@ import * as Styled from "./CompletedPoolsBlock.Styled";
 
 import mask from "../../../images/mask.png";
 
-const PoolsBlock = () => {
+const PoolsBlock = (props: any) => {
 	return (
 		<Styled.Container>
 			<Styled.Content>
