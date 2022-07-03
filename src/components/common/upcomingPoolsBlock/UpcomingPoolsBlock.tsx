@@ -83,7 +83,7 @@ const UpcomingPoolsBlock = (props: any) => {
 				<Styled.Pools>
 					{props.bigArr.status
 						.filter((e: any) => e.Category === filtr || filtr === "All")
-						.filter((e: any) => Number(e.EndDate) >= new Date().getTime())
+						// .filter((e: any) => Number(e.EndDate) >= new Date().getTime())
 						.map((e: any) =>
 							e ? (
 								<Tilt
@@ -128,7 +128,7 @@ const UpcomingPoolsBlock = (props: any) => {
 												<Styled.Allocation>
 													<Styled.AllocationAmount>
 														<Styled.AllocationText>
-															Raised (TON)
+															Raised (SOL)
 														</Styled.AllocationText>
 														<Styled.AllocationHeading>
 															{e.Rised}
@@ -136,7 +136,7 @@ const UpcomingPoolsBlock = (props: any) => {
 													</Styled.AllocationAmount>
 													<Styled.AllocationAmount>
 														<Styled.AllocationText>
-															Maximum (TON)
+															Maximum (SOL)
 														</Styled.AllocationText>
 														<Styled.AllocationHeading>
 															{e.Max}

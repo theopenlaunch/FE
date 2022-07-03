@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  width: 920px;
+  width: 620px;
   /* max-height: 520px; */
   background-color: #fff;
   border-radius: 12px;
@@ -66,7 +66,7 @@ export const InfoBlock = styled.div`
 
   /* width: 43%; */
   /* background: green; */
-  margin: 0 0 0 120px;
+  /* margin: 0 0 0 120px; */
 `;
 
 export const InfoLabel = styled.span`

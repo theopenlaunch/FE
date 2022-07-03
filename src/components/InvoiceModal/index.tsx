@@ -54,7 +54,7 @@ const ModalInvoice: VFC<any> = memo(
 					) : (
 						<>
 							<FlexWrapper>
-								{code}
+								{/* {code} */}
 								<InfoBlock>
 									<InfoText>
 										<span>Description: </span>
@@ -65,19 +65,19 @@ const ModalInvoice: VFC<any> = memo(
 										onClick={() =>
 											MakeTrx(hex, projectId, NFTcost, projectWallet)
 										}>
-										TonWeb
+										SOl wallet
 									</BuyButton>
 
-									<a href={link}>
+									{/* <a href={link}>
 										<BuyButton>Link</BuyButton>
-									</a>
+									</a> */}
 
-									<BuyButton
+									{/* <BuyButton
 										onClick={() =>
 											listener(hex, setIsload, projectId, projectWallet)
 										}>
 										I paid
-									</BuyButton>
+									</BuyButton> */}
 								</InfoBlock>
 							</FlexWrapper>
 						</>

@@ -60,11 +60,12 @@ const PoolDataModal: VFC<Props> = memo(
 						<Sss {...settings} id={"slider"}>
 							<img style={{ maxWidth: "250px" }} src={projectData.Picture} />
 
-							<iframe
+							{/* <iframe
 								height="250"
 								width="250"
-								src={`${projectData.VideoLink}?autoplay=1&mute=1`}></iframe>
+								src={`${projectData.VideoLink}?autoplay=1&mute=1`}></iframe> */}
 						</Sss>
+						{/* <img style={{ maxWidth: "250px" }} src={projectData.Picture} /> */}
 
 						<Data>
 							{projectData.Description}
@@ -106,14 +107,14 @@ const PoolDataModal: VFC<Props> = memo(
 									<p>
 										External: <a href={link}>link</a>
 									</p>
-									<p>Max: {projectData.Max} TON</p>
+									<p>Max: {projectData.Max} SOL</p>
 									<p>End: {date}</p>
 								</div>
 							</PointsWrapper>
 						</Data>
 					</DataWrapper>
-					<DonateButton onClick={() => createInvoice(0.1)}>
-						donate 0.1 TON
+					<DonateButton onClick={() => createInvoice(5)}>
+						donate 5 SOL
 					</DonateButton>
 				</Wrapper>
 			</Modal>

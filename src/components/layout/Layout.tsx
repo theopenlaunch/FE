@@ -7,6 +7,7 @@ import twitter from "../../images/twitter.svg";
 import facebook from "../../images/facebook.svg";
 import discord from "../../images/discord.svg";
 import telegram from "../../images/telegram.svg";
+import { message } from "antd";
 
 interface LayoutProps {
 	children: React.ReactNode;
@@ -36,14 +37,18 @@ const Layout = ({ children }: LayoutProps) => {
 
 	const connectWalletTON = async (setTONwalletKey: any) => {
 		try {
-			//@ts-ignore // TODO add types for .ton
-			const ton = window.ton;
-			if (ton) {
-				const accounts = await ton.send("ton_requestWallets");
-				setTONwalletKey(accounts[0].address);
+			// @ts-ignore
+			const solana = window.solana;
+			if (solana) {
+				const response = await solana.connect();
+				setTONwalletKey(response.publicKey.toString());
+			} else {
+				message.error(
+					"Install Phantom wallet. Close all Phantom wallet windows and try again pls",
+					5
+				);
 			}
 		} catch (err) {
-			alert("Install TonWallet. Close all TonWallet windows and try again.");
 			console.log(err);
 		}
 	};
@@ -90,8 +95,9 @@ const Layout = ({ children }: LayoutProps) => {
 					<Styled.SocialIcon src={telegram} alt="telegram" />
 				</Styled.Socials>
 				<p>
-					© BlockCzech 2022. All rights Reserved.{" "}
-					<a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+					© Tonana 2022. All rights Reserved.
+					{/* <a href="#">Terms of Service</a> |{" "}
+					<a href="#">Privacy Policy</a> */}
 				</p>
 				<br />v 0.0.1 (beta)
 			</Styled.Footer>

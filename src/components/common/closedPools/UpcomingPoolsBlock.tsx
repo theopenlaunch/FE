@@ -128,7 +128,7 @@ const ClosedPools = (props: any) => {
 												<Styled.Allocation>
 													<Styled.AllocationAmount>
 														<Styled.AllocationText>
-															Raised (TON)
+															Raised (SOL)
 														</Styled.AllocationText>
 														<Styled.AllocationHeading>
 															{e.Rised}
@@ -136,7 +136,7 @@ const ClosedPools = (props: any) => {
 													</Styled.AllocationAmount>
 													<Styled.AllocationAmount>
 														<Styled.AllocationText>
-															Maximum (TON)
+															Maximum (SOL)
 														</Styled.AllocationText>
 														<Styled.AllocationHeading>
 															{e.Max}
