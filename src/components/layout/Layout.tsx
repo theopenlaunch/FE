@@ -56,9 +56,9 @@ const Layout = ({ children }: LayoutProps) => {
 						<Redirect href="/">
 							<Styled.Link>Home</Styled.Link>
 						</Redirect>
-						<Redirect href="https://app.tonana.org">
+						{/* <Redirect href="https://app.tonana.org">
 							<Styled.Link>Tonana Bridge</Styled.Link>
-						</Redirect>
+						</Redirect> */}
 
 						{/* <Redirect href="/staking-farming">
               <Link>Staking/Farming</Link>

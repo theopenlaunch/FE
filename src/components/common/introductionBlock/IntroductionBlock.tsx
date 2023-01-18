@@ -3,7 +3,7 @@ import { ChevronDownIcon, ChevronRightIcon } from "@heroicons/react/solid";
 import { Heading01 } from "../../../utils/Heading";
 import * as Styled from "./IntroductionBlock.Styled";
 
-import banana from "../../../images/banana.png";
+import rocket from "../../../images/rocket.svg";
 
 const IntroductionBlock = () => {
 	return (
@@ -51,7 +51,7 @@ const IntroductionBlock = () => {
 						</Styled.Links>
 					</Styled.TextContent>
 					<Styled.ImageWrapper>
-						<Styled.Banana src={banana} alt="Banana" />
+						<Styled.Banana src={rocket} alt="RocketLaunch" />
 					</Styled.ImageWrapper>
 				</Styled.TopContent>
 				<Styled.BottomContent>
