@@ -90,7 +90,7 @@ const Layout = ({ children }: LayoutProps) => {
 					<Styled.SocialIcon src={telegram} alt="telegram" />
 				</Styled.Socials>
 				<p>
-					© BlockCzech 2022. All rights Reserved.{" "}
+					© LaunchPad 2023. All rights Reserved.{" "}
 					<a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
 				</p>
 				<br />v 0.0.1 (beta)

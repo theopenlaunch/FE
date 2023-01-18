@@ -24,30 +24,30 @@ const IntroductionBlock = () => {
 									</Styled.IconWrapper>
 								</Styled.Link>
 							</a>
-							<a href={"https://app.tonana.org"}>
+							{/* <a href={"https://app.tonana.org"}>
 								<Styled.Link style={{ background: "#C27CFF" }}>
 									Tonana bridge{" "}
 									<Styled.IconWrapper>
 										<ChevronRightIcon />
 									</Styled.IconWrapper>
 								</Styled.Link>
-							</a>
-							<a href={"https://t.me/tonanadao"}>
+							</a> */}
+							{/* <a href={"https://t.me/tonanadao"}>
 								<Styled.Link style={{ background: "#F0D907" }}>
 									Our telegram{" "}
 									<Styled.IconWrapper>
 										<ChevronRightIcon />
 									</Styled.IconWrapper>
 								</Styled.Link>
-							</a>
-							<a href={"https://twitter.com/TonanaBridge"}>
+							</a> */}
+							{/* <a href={"https://twitter.com/TonanaBridge"}>
 								<Styled.Link style={{ background: "#6CB28D" }}>
 									Our twitter{" "}
 									<Styled.IconWrapper>
 										<ChevronRightIcon />
 									</Styled.IconWrapper>
 								</Styled.Link>
-							</a>
+							</a> */}
 						</Styled.Links>
 					</Styled.TextContent>
 					<Styled.ImageWrapper>
