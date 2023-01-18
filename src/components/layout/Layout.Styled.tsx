@@ -53,7 +53,7 @@ export const Logo = styled.img`
 `;
 
 export const ConnectButton = styled.button`
-	background-color: #fc9114;
+	background-color: #3F3D56;
 	border-radius: 10px;
 	border: none;
 	cursor: pointer;

@@ -13,11 +13,11 @@ const IntroductionBlock = () => {
 					<Styled.TextContent>
 						<Heading01>
 							Community&#8209;run NFT&#8209;based launchpad{" "}
-							<Styled.SpecialText>for TON projects</Styled.SpecialText>
+							<Styled.SpecialText style={{ color: "#5DA6E9" }}>for TON projects</Styled.SpecialText>
 						</Heading01>
 						<Styled.Links>
 							<a href={"https://x18oi9qoftd.typeform.com/to/RqK4yWuM"}>
-								<Styled.Link style={{ background: "#5DA6E9" }}>
+								<Styled.Link style={{ background: "#3F3D56" }}>
 									Apply as a Project{" "}
 									<Styled.IconWrapper>
 										<ChevronRightIcon />

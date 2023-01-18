@@ -86,9 +86,7 @@ export const ImageWrapper = styled.figure`
 export const Banana = styled.img`
 	height: 98%;
 	width: 98%;
-	-webkit-animation: spin 30s linear infinite;
-	-moz-animation: spin 30s linear infinite;
-	animation: spin 30s linear infinite;
+	
 
 	@-moz-keyframes spin {
 		100% {
@@ -134,7 +132,7 @@ export const Link = styled.li`
 `;
 
 export const Box = styled.div`
-	background-color: #fcc914;
+	background-color: #3F3D56;
 	color: #fff;
 	padding: 20px;
 	border-radius: 20px;
