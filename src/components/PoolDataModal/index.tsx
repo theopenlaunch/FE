@@ -60,12 +60,12 @@ const PoolDataModal: VFC<Props> = memo(
 						<Sss {...settings} id={"slider"}>
 							<img style={{ maxWidth: "250px" }} src={projectData.Picture} />
 
-							<iframe
+							{/*							<iframe
 								height="250"
 								width="250"
 								src={`${projectData.VideoLink}?autoplay=1&mute=1`}></iframe>
+*/}
 						</Sss>
-
 						<Data>
 							{projectData.Description}
 							<br />

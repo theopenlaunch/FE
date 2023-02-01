@@ -8,11 +8,17 @@ export const MakeTrx = async (
 ) => {
 	const ton = (window as any).ton;
 	console.log(NFTcost);
+	console.log({
+		to: projectWallet,
+		value: TonWeb.utils.toNano(NFTcost),
+		data: `${hexString}${projectId}`,
+	},
+	)
 	if (ton) {
 		ton.send("ton_sendTransaction", [
 			{
 				to: projectWallet,
-				value: TonWeb.utils.toNano(0.1),
+				value: TonWeb.utils.toNano(NFTcost).toString(),
 				data: `${hexString}${projectId}`,
 			},
 		]);
@@ -51,10 +57,10 @@ export const listener = (hexString: any, setIsload: any, projectId: any, project
 
 const MintNFTs = (projectId: any, hexString: any, setIsload: any) => {
 	setIsload(true);
-	fetch(`https://launchpad.tonana.org:9967/API/payedIds`, {
+	fetch(`https://launchpad.sepezho.com:9967/API/payedIds`, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify({ invoiceId: hexString+projectId }),
+		body: JSON.stringify({ invoiceId: hexString + projectId }),
 	})
 		.then((e: any) => e.json())
 		.then((e: any) => {

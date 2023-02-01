@@ -76,7 +76,7 @@ const ModalInvoice: VFC<any> = memo(
 										onClick={() =>
 											listener(hex, setIsload, projectId, projectWallet)
 										}>
-										I paid
+										Check payment
 									</BuyButton>
 								</InfoBlock>
 							</FlexWrapper>

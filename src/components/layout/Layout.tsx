@@ -67,6 +67,11 @@ const Layout = ({ children }: LayoutProps) => {
               <Link>Claims</Link>
             </Redirect> */}
 					</Styled.Links>
+					<div>
+						testnet version
+					</div>
+					<div>
+					</div>
 					{/* <Redirect href="/">
             <Logo src={logo} alt="logo" />
           </Redirect> */}
