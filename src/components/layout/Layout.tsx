@@ -89,7 +89,7 @@ const Layout = ({ children }: LayoutProps) => {
 					<Styled.SocialIcon src={telegram} alt="telegram" />
 				</Styled.Socials>
 				<p>
-					© LaunchPad 2023. All rights Reserved.{" "}
+					© The Open Launch 2023. All rights Reserved.{" "}
 					<a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
 				</p>
 				<br />v 0.0.1 (beta)
