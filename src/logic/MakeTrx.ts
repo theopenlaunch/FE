@@ -66,7 +66,7 @@ const MintNFTs = (projectId: any, hexString: any, setIsload: any) => {
 		.then((e: any) => {
 			console.log(e);
 			if (e.status === "ok") {
-				alert("Done minting!");
+				alert("Your NFT will be minted within 5min!");
 			} else {
 				alert(`Some error here :/`);
 			}

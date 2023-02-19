@@ -13,7 +13,6 @@ const StakePage = () => {
           <Heading01>
             <span style={{ color: "#FC9114" }}>Stake</span> or{" "}
             <span style={{ color: "#FC9114" }}>farm</span> your{" "}
-            <span style={{ color: "#eee600" }}>$TONANA</span> to join{" "}
             <span style={{ color: "#FC9114" }}>whitelists</span>
           </Heading01>
         </Styled.TextWrapper>

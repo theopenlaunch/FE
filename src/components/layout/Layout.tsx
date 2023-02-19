@@ -67,11 +67,6 @@ const Layout = ({ children }: LayoutProps) => {
               <Link>Claims</Link>
             </Redirect> */}
 					</Styled.Links>
-					<div>
-						testnet version
-					</div>
-					<div>
-					</div>
 					{/* <Redirect href="/">
             <Logo src={logo} alt="logo" />
           </Redirect> */}
@@ -87,7 +82,6 @@ const Layout = ({ children }: LayoutProps) => {
 			</Styled.Header>
 			{children}
 			<Styled.Footer>
-				<Styled.Logo src={logo} alt="logo" />
 				<Styled.Socials>
 					<Styled.SocialIcon src={twitter} alt="twitter" />
 					<Styled.SocialIcon src={facebook} alt="facebook" />
@@ -103,5 +97,6 @@ const Layout = ({ children }: LayoutProps) => {
 		</Styled.Container>
 	);
 };
+//<Styled.Logo src={logo} alt="logo" />
 
 export default Layout;

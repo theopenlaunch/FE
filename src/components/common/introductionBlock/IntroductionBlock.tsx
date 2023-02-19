@@ -59,7 +59,7 @@ const IntroductionBlock = () => {
 						<div>
 							<Styled.BoxHeading>What is Community Funding</Styled.BoxHeading>
 							<Styled.BoxText>
-								Before getting started, let's dig into Tonana Launchpad and what
+								Before getting started, let's dig into Launchpad and what
 								it stands for
 							</Styled.BoxText>
 						</div>
@@ -76,7 +76,7 @@ const IntroductionBlock = () => {
 								Proof-of-work Vesting System
 							</Styled.BoxHeading>
 							<Styled.BoxText>
-								Get to know more about the Tonana Security of Investment
+								Get to know more about the Security of Investment
 							</Styled.BoxText>
 						</div>
 						<Styled.LearnMore>

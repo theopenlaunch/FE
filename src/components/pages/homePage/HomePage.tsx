@@ -24,7 +24,7 @@ const HomePage = () => {
 				console.log(arr[i].Wallet);
 				await fetch(
 					"https://testnet.toncenter.com/api/v2/getAddressBalance?address=" +
-						arr[i].Wallet,
+					arr[i].Wallet,
 					{
 						method: "GET",
 						headers: {
