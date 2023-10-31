@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import Redirect from "../redirect/Redirect";
 import * as Styled from "./Layout.Styled";
-
-import logo from "../../images/logo.svg";
 import twitter from "../../images/twitter.svg";
 import facebook from "../../images/facebook.svg";
 import discord from "../../images/discord.svg";
 import telegram from "../../images/telegram.svg";
-
+import TonWeb from "tonweb";
 interface LayoutProps {
 	children: React.ReactNode;
 }
@@ -37,7 +35,7 @@ const Layout = ({ children }: LayoutProps) => {
 	const connectWalletTON = async (setTONwalletKey: any) => {
 		try {
 			//@ts-ignore // TODO add types for .ton
-			const ton = window.ton;
+			const ton = window.TonWeb();
 			if (ton) {
 				const accounts = await ton.send("ton_requestWallets");
 				setTONwalletKey(accounts[0].address);
@@ -73,7 +71,7 @@ const Layout = ({ children }: LayoutProps) => {
 					<Styled.ConnectButton
 						onClick={() => connectWalletTON(setTONwalletKey)}>
 						{!key ? (
-							"Connect wallet"
+							"Sign up with wallet"
 						) : (
 							<span>{`${key.slice(0, 5)}...${key.slice(-3)}`}</span>
 						)}
