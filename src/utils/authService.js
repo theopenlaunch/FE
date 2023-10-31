@@ -16,7 +16,7 @@ export const useAuth = () => {
       if (response.ok) {
         const userData = await response.json();
         localStorage.setItem('token', userData.token);
-        setUser(userData.user); // Assuming the response includes a user object
+        setUser(userData.user); 
         return userData;
       } else {
         console.error('Sign in failed');
@@ -39,7 +39,7 @@ export const useAuth = () => {
       if (response.ok) {
         const userData = await response.json();
         localStorage.setItem('token', userData.token);
-        setUser(userData.user); // Assuming the response includes a user object
+        setUser(userData.user);
         return userData;
       } else {
         console.error('Sign up failed');
@@ -69,7 +69,7 @@ export const useAuth = () => {
     });
 
     if (response.status === 401) {
-      signOut(); // Optional: redirect to login or show a message
+      signOut(); 
     }
 
     return response;
