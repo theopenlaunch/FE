@@ -1,100 +1,148 @@
-import React, { useState } from "react";
-import Redirect from "../redirect/Redirect";
+import React, { useState, useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom";
+import Modal from 'react-modal';
+import styled, { createGlobalStyle } from "styled-components";
 import * as Styled from "./Layout.Styled";
-import twitter from "../../images/twitter.svg";
-import facebook from "../../images/facebook.svg";
-import discord from "../../images/discord.svg";
-import telegram from "../../images/telegram.svg";
-import TonWeb from "tonweb";
+import SignUpForm from "../pages/signUp/SignUpForm";
+import SignInForm from "../pages/signIn/SignInForm";
+
+// Set the top level element for the modal. Replace '#root' with your actual root element's id.
+Modal.setAppElement('#root');
+
 interface LayoutProps {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }
 
-// FOR TONCELLS // EXAMPLE
+const GlobalStyle = createGlobalStyle`
+  .ReactModal__Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+    z-index: 1000;
+  }
 
-// fetch("https://launchpad.tonana.org:9967/API/addCollection", {
-// 	method: "POST",
-// 	headers: { "Content-Type": "application/json" },
-// 	body: JSON.stringify({
-// 		title: "Toncells v1",
-// 		description:
-// 			"TonCells is a 100 by 100 celled field where each cell can be edited. Make your unique NFT even more unique by customizing it how you want. Add picture or edit your own description and mainly do whatever you want!",
-// 		image:
-// 			"https://i.getgems.io/IbzFfDaWyK3v1FMjzZ005bItg86ircWMI-tps_HE1Ts/rs:fill:200:200:1/g:ce/czM6Ly9nZXRnZW1zLXMzL25mdC1jb250ZW50LWNhY2hlL2l0ZW0vMjdmN2I3ZDEtZDE5MC00MjkyLTlhYWQtNGVkYWNjMzkwNmEz",
-// 		externalUrl: "https://app.toncells.org",
-// 		endDate: 1655999907020,
-// 		maxFunding: 10069,
-// 	}),
-// })
-// 	.then((e) => e.json())
-// 	.then(console.log);
+  .ReactModal__Overlay--after-open {
+    opacity: 1;
+  }
+
+  .ReactModal__Overlay--before-close {
+    opacity: 0;
+  }
+
+  .ReactModal__Content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    background: #fff;
+    overflow: auto;
+    WebkitOverflowScrolling: touch;
+    border-radius: 30px;
+    outline: none;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+
 
 const Layout = ({ children }: LayoutProps) => {
-	const [key, setTONwalletKey] = useState("");
+  const [key, setTONwalletKey] = useState("");
+  const [isModalOpen, setModalOpen] = useState(false);
+  const history = useHistory();
+  const location = useLocation();
 
-	const connectWalletTON = async (setTONwalletKey: any) => {
-		try {
-			//@ts-ignore // TODO add types for .ton
-			const ton = window.TonWeb();
-			if (ton) {
-				const accounts = await ton.send("ton_requestWallets");
-				setTONwalletKey(accounts[0].address);
-			}
-		} catch (err) {
-			alert("Install TonWallet. Close all TonWallet windows and try again.");
-			console.log(err);
-		}
-	};
+  useEffect(() => {
+    if (location.pathname === "/signup" || location.pathname === "/signin") {
+      setModalOpen(true);
+    } else {
+      setModalOpen(false);
+    }
+  }, [location]);
 
-	return (
-		<Styled.Container>
-			<Styled.Header>
-				<Styled.Navigation>
-					<Styled.Links>
-						<Redirect href="/">
-							<Styled.Link>Home</Styled.Link>
-						</Redirect>
-						{/* <Redirect href="https://app.tonana.org">
-							<Styled.Link>Tonana Bridge</Styled.Link>
-						</Redirect> */}
+  const closeModal = () => {
+    setModalOpen(false);
+    history.push("/"); 
+  };
 
-						{/* <Redirect href="/staking-farming">
-              <Link>Staking/Farming</Link>
-            </Redirect>
-            <Redirect href="/claims">
-              <Link>Claims</Link>
-            </Redirect> */}
-					</Styled.Links>
-					{/* <Redirect href="/">
-            <Logo src={logo} alt="logo" />
-          </Redirect> */}
-					<Styled.ConnectButton
-						onClick={() => connectWalletTON(setTONwalletKey)}>
-						{!key ? (
-							"Sign up with wallet"
-						) : (
-							<span>{`${key.slice(0, 5)}...${key.slice(-3)}`}</span>
-						)}
-					</Styled.ConnectButton>
-				</Styled.Navigation>
-			</Styled.Header>
-			{children}
-			<Styled.Footer>
-				<Styled.Socials>
-					<Styled.SocialIcon src={twitter} alt="twitter" />
-					<Styled.SocialIcon src={facebook} alt="facebook" />
-					<Styled.SocialIcon src={discord} alt="discord" />
-					<Styled.SocialIcon src={telegram} alt="telegram" />
-				</Styled.Socials>
-				<p>
-					© The Open Launch 2023. All rights Reserved.{" "}
-					<a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
-				</p>
-				<br />v 0.0.1 (beta)
-			</Styled.Footer>
-		</Styled.Container>
-	);
-};
-//<Styled.Logo src={logo} alt="logo" />
+  const handleSignUpClick = () => {
+    history.push("/signup");
+  };
 
+  const handleSignInClick = () => {
+    history.push("/signin");
+  };
+
+  const connectWalletTON = async () => {
+    try {
+      //@ts-ignore // TODO add types for .ton
+      const ton = window.TonWeb();
+      if (ton) {
+        const accounts = await ton.send("ton_requestWallets");
+        setTONwalletKey(accounts[0].address);
+      }
+    } catch (err) {
+      alert("Install TonWallet. Close all TonWallet windows and try again.");
+      console.log(err);
+    }
+  };
+
+  return (
+	<Styled.Container>
+	  <GlobalStyle />
+	  <Styled.Header>
+		<Styled.Navigation>
+		  <Styled.Links>
+			{/* Other links go here */}
+			<a href="/">
+			  <Styled.Link>Home</Styled.Link>
+			</a>
+			{/* More links can be added here */}
+		  </Styled.Links>
+		  <Styled.ButtonGroup>
+			<Styled.ConnectButton onClick={handleSignUpClick}>
+			  Sign Up
+			</Styled.ConnectButton>
+			<Styled.ConnectButton onClick={handleSignInClick}>
+			  Sign In
+			</Styled.ConnectButton>
+			<Styled.ConnectButton onClick={connectWalletTON}>
+			  Sign Up with Wallet
+			</Styled.ConnectButton>
+		  </Styled.ButtonGroup>
+		</Styled.Navigation>
+	  </Styled.Header>
+	  
+	  {/* Only render children when the modal is not open */}
+	  {!isModalOpen && children}
+	  
+	  <Styled.Footer>
+		{/* Footer content goes here */}
+		<p>
+		  © The Open Launch 2023. All rights Reserved.{" "}
+		  <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+		</p>
+		<br />v 0.0.1 (beta)
+	  </Styled.Footer>
+	  
+	  <Modal
+		isOpen={isModalOpen}
+		onRequestClose={closeModal}
+		contentLabel="Authentication Modal"
+		className="ReactModal__Content"
+		overlayClassName="ReactModal__Overlay"
+	  >
+		{location.pathname === "/signup" && <SignUpForm />}
+		{location.pathname === "/signin" && <SignInForm />}
+	  </Modal>
+	</Styled.Container>
+  );
+  
+  }
 export default Layout;
